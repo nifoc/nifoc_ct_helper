@@ -1,0 +1,11 @@
+{application, nifoc_ct_helper, [
+  {description, "Common Test helpers."},
+  {vsn, "0.1"},
+  {modules, []},
+  {registered, []},
+  {applications, [
+    kernel,
+    stdlib
+  ]},
+  {env, []}
+]}.
