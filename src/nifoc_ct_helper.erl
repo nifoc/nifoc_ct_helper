@@ -15,7 +15,8 @@
   priv_dir/1,
   test_dir/1,
   test_modules/2,
-  eunit_modules/1
+  eunit_modules/1,
+  eqc_modules/1
 ]).
 
 -spec application_dir(module()) -> string().
@@ -59,3 +60,7 @@ test_modules(Mod, Ext) ->
 -spec eunit_modules(module()) -> [module()].
 eunit_modules(Mod) ->
   test_modules(Mod, "_test").
+
+-spec eqc_modules(module()) -> [module()].
+eqc_modules(Mod) ->
+  test_modules(Mod, "_eqc").

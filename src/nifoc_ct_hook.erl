@@ -22,13 +22,13 @@ id(_Options) -> ?MODULE.
 init(_Id, _Options) ->
   {ok, []}.
 
-pre_init_per_testcase(eunit, Config, State) ->
+pre_init_per_testcase(TC, Config, State) when TC =:= eunit; TC =:= eqc ->
   ok = ct:capture_start(),
   {Config, State};
 pre_init_per_testcase(_TC, Config, State) ->
   {Config, State}.
 
-post_end_per_testcase(eunit, _Config, Return, State) ->
+post_end_per_testcase(TC, _Config, Return, State) when TC =:= eunit; TC =:= eqc ->
   case Return of
     {error, _} ->
       Output = lists:droplast(ct:capture_get()),
