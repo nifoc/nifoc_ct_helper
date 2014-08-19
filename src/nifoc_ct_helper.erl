@@ -16,7 +16,8 @@
   test_dir/1,
   test_modules/2,
   eunit_modules/1,
-  eqc_modules/1
+  eqc_modules/1,
+  triq_modules/1
 ]).
 
 -spec application_dir(module()) -> string().
@@ -64,3 +65,7 @@ eunit_modules(Mod) ->
 -spec eqc_modules(module()) -> [module()].
 eqc_modules(Mod) ->
   test_modules(Mod, "_eqc").
+
+-spec triq_modules(module()) -> [module()].
+triq_modules(Mod) ->
+  test_modules(Mod, "_triq").
